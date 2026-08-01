@@ -1,4 +1,3 @@
-from datetime import datetime
 import math
 
 class StudySession:
@@ -10,16 +9,16 @@ class StudySession:
         self.duration_minutes = 0
         self.date = None
 
-        def calculate_duration(self):
-            elapsed = self.end_time - self.start_time
-            minutes = elapsed.total_seconds() / 60
-            self.duration_minutes = math.ceil(minutes)
+    def calculate_duration(self):
+        elapsed = self.end_time - self.start_time
+        minutes = elapsed.total_seconds() / 60
+        self.duration_minutes = math.ceil(minutes)
 
-        def get_duration(self):
-            return {
-                "id": self.id,
-                "date": str(self.date),
-                "start_time": str(self.start_time),
-                "end_time": str(self.end_time),
+    def get_duration(self):
+        return {
+            "id": self.id,
+            "date": str(self.date),
+            "start_time": str(self.start_time),
+            "end_time": str(self.end_time),
                 "duration_minutes": self.duration_minutes,
-            }
+        }
