@@ -1,22 +1,21 @@
 import sqlite3
 
+from datetime import datetime
+from study_session import StudySession
+
 print("storage.py imported")
 
 class Storage:
 
     def __init__(self):
         print("Storage __init__ running")
-
         self.connection = sqlite3.connect("storage.db")
         self.create_table()
 
 
     def create_table(self):
-
         print("Creating table")
-
         cursor = self.connection.cursor()
-
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS sessions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -42,6 +41,7 @@ class Storage:
             str(session.end_time),
             str(session.duration_minutes)
         ))
+
         self.connection.commit()
 
     def load_sessions(self):
@@ -49,5 +49,14 @@ class Storage:
         cursor.execute("""
         SELECT * FROM sessions
         """)
-        sessions = cursor.fetchall()
+        rows = cursor.fetchall()
+        sessions = []
+        for row in rows:
+            session = StudySession(row[0])
+            session.id = row[0]
+            session.date = datetime.strptime(row[1], "%Y-%m-%d").date()
+            session.start_time = row[2]
+            session.end_time = row[3]
+            session.duration_minutes = row[4]
+            sessions.append(session)
         return sessions
