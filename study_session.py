@@ -20,5 +20,5 @@ class StudySession:
             "date": str(self.date),
             "start_time": str(self.start_time),
             "end_time": str(self.end_time),
-                "duration_minutes": self.duration_minutes,
+            "duration_minutes": self.duration_minutes,
         }
