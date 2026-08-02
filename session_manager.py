@@ -14,7 +14,7 @@ class SessionManager:
 
     def end_session(self):
         if self.current_session is None:
-            print("No active session")
+            print("No active session.")
             return None
 
         self.current_session.end_time = datetime.now()
