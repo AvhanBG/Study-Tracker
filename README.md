@@ -32,7 +32,7 @@ This project is a study tracker built using Python that records study sessions i
 
 * Python 3.13
 
-## How to run
+## How to Run
 
 1. Download or clone the repository.
 2. Ensure Python 3 is installed on your computer.
