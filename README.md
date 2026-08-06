@@ -47,4 +47,3 @@ This project is a study tracker built using Python that records study sessions i
 * Visual statistics and study graphs
 * Monthly study summaries
 * Improved user input and error handling
-* 
