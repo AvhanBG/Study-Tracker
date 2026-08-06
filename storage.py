@@ -3,18 +3,14 @@ import sqlite3
 from datetime import datetime
 from study_session import StudySession
 
-print("storage.py imported")
-
 class Storage:
 
     def __init__(self):
-        print("Storage __init__ running")
         self.connection = sqlite3.connect("storage.db")
         self.create_table()
 
 
     def create_table(self):
-        print("Creating table")
         cursor = self.connection.cursor()
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS sessions (
